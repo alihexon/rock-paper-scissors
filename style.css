@@ -32,7 +32,15 @@ body {
 
 #result-wrapper {
   color: #fff;
+}
+
+.result {
   font-size: 30px;
   font-weight: 600;
+}
+
+.moves {
+  margin-top: 7px;
+  font-size: 20px;
 }
 
