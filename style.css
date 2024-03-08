@@ -14,6 +14,7 @@ body {
 #move-selection {
   display: flex;
   gap: 20px;
+  margin: 15px 25px;
 }
 
 .select-move-btn {
@@ -21,6 +22,7 @@ body {
   border: 3px solid white;
   border-radius: 50%;
   padding: 20px;
+  cursor: pointer;
 }
 
 .select-move-btn img {
