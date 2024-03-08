@@ -1,1 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  font-family: Poppins, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(27, 27, 27);
+}
+
+#move-selection {
+  display: flex;
+  gap: 20px;
+}
+
+.select-move-btn {
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.select-move-btn img {
+  height: 80px;
+}
