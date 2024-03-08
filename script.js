@@ -15,6 +15,7 @@ function pickComputerMove() {
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
   let resultElement = document.querySelector('.result');
+  let movesElement = document.querySelector('.moves');
 
   if (playerMove === 'rock') {
     if (computerMove === 'scissors') {
@@ -43,4 +44,6 @@ function playGame(playerMove) {
   if (playerMove === computerMove) {
     resultElement.innerHTML = 'Tie';
   }
+
+  movesElement.innerHTML = `You picked ${playerMove}, and computer picked ${computerMove}.`;
 }
