@@ -1,3 +1,9 @@
+let score = {
+  wins: 0,
+  loses: 0,
+  ties: 0,
+}
+
 function pickComputerMove() {
   const randomNumber = Math.random();
   let computerMove = '';
@@ -16,6 +22,7 @@ function playGame(playerMove) {
   const computerMove = pickComputerMove();
   let resultElement = document.querySelector('.result');
   let movesElement = document.querySelector('.moves');
+  let scoreElement = document.querySelector('.score');
 
   if (playerMove === 'rock') {
     if (computerMove === 'scissors') {
@@ -45,5 +52,16 @@ function playGame(playerMove) {
     resultElement.innerHTML = 'Tie';
   }
 
+  if (resultElement.innerHTML === 'You won') {
+    score.wins++;
+  } else if (resultElement.innerHTML === 'You lost') {
+    score.loses++;
+  } else if (resultElement.innerHTML === 'Tie') {
+    score.ties++;
+  }
+
   movesElement.innerHTML = `You picked ${playerMove}, and computer picked ${computerMove}.`;
+  scoreElement.innerHTML = `
+    Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}
+  `;
 }
