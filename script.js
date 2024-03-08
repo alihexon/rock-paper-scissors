@@ -1,6 +1,5 @@
 let score = {
-  wins: 0,
-  loses: 0,
+  wins: 0,loses: 0,
   ties: 0,
 }
 
@@ -23,6 +22,7 @@ function playGame(playerMove) {
   let resultElement = document.querySelector('.result');
   let movesElement = document.querySelector('.moves');
   let scoreElement = document.querySelector('.score');
+  let errorElement = document.querySelector('.error');
 
   if (playerMove === 'rock') {
     if (computerMove === 'scissors') {
@@ -61,7 +61,18 @@ function playGame(playerMove) {
   }
 
   movesElement.innerHTML = `You picked ${playerMove}, and computer picked ${computerMove}.`;
-  scoreElement.innerHTML = `
-    Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}
-  `;
+  scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
+  errorElement.innerHTML = '';
+}
+
+function resetScore() {
+  let scoreElement = document.querySelector('.score');
+  let errorElement = document.querySelector('.error');
+
+  if (scoreElement.innerHTML === '') {
+    errorElement.innerHTML = "There's no score to reset.";
+  } else {
+    score = { wins: 0, loses: 0, ties: 0, }
+    scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
+  }
 }
