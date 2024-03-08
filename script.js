@@ -1,6 +1,8 @@
-let score = {
-  wins: 0,loses: 0,
-  ties: 0,
+let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, loses: 0, ties: 0, };
+
+if (score) {
+  let scoreElement = document.querySelector('.score');
+  scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
 }
 
 function pickComputerMove() {
@@ -59,6 +61,8 @@ function playGame(playerMove) {
   } else if (resultElement.innerHTML === 'Tie') {
     score.ties++;
   }
+
+  localStorage.setItem('score', JSON.stringify(score));
 
   movesElement.innerHTML = `You picked ${playerMove}, and computer picked ${computerMove}.`;
   scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
