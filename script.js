@@ -69,6 +69,27 @@ function playGame(playerMove) {
   errorElement.innerHTML = '';
 }
 
+isAutoPlaying = false;
+let intervalId;
+
+function autoPlay() {
+  const playerMove = pickComputerMove();
+  let autoPlayElement = document.querySelector('.autoplay-btn');
+
+  if (!isAutoPlaying) {
+    autoPlayElement.innerHTML = 'Stop playing';
+    isAutoPlaying = true;
+    intervalId = setInterval(function() {
+      playGame(playerMove);
+    }, 1000);
+  } else {
+    autoPlayElement.innerHTML = 'Auto Play';
+    isAutoPlaying = false;
+
+    clearInterval(intervalId)    
+  } 
+}
+
 function resetScore() {
   let scoreElement = document.querySelector('.score');
   let errorElement = document.querySelector('.error');
