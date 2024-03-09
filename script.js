@@ -79,7 +79,7 @@ function autoPlay() {
   if (!isAutoPlaying) {
     autoPlayElement.innerHTML = 'Stop playing';
     isAutoPlaying = true;
-    intervalId = setInterval(function() {
+    intervalId = setInterval(() => {
       playGame(playerMove);
     }, 1000);
   } else {
