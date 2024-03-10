@@ -20,6 +20,24 @@ document.querySelector('.scissors-btn')
     playGame('scissors');
   });
 
+  document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'r') {
+      playGame('rock')
+    }
+  });
+
+  document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'p') {
+      playGame('paper')
+    }
+  });
+
+  document.body.addEventListener('keydown', (event) => {
+    if (event.key === 's') {
+      playGame('scissors')
+    }
+  });
+
 function pickComputerMove() {
   const randomNumber = Math.random();
   let computerMove = '';
