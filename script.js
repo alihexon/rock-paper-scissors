@@ -38,6 +38,12 @@ document.querySelector('.scissors-btn')
     }
   });
 
+  document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'a') {
+      autoPlay();
+    }
+  });
+
 function pickComputerMove() {
   const randomNumber = Math.random();
   let computerMove = '';
@@ -107,22 +113,26 @@ let intervalId;
 
 document.querySelector('.autoplay-btn')
   .addEventListener('click', () => {
-    const playerMove = pickComputerMove();
-    let autoPlayElement = document.querySelector('.autoplay-btn');
-  
-    if (!isAutoPlaying) {
-      autoPlayElement.innerHTML = 'Stop playing';
-      isAutoPlaying = true;
-      intervalId = setInterval(() => {
-        playGame(playerMove);
-      }, 1000);
-    } else {
-      autoPlayElement.innerHTML = 'Auto Play';
-      isAutoPlaying = false;
-  
-      clearInterval(intervalId)    
-    } 
+      autoPlay();
   })
+
+function autoPlay() {
+  const playerMove = pickComputerMove();
+  let autoPlayElement = document.querySelector('.autoplay-btn');
+
+  if (!isAutoPlaying) {
+    autoPlayElement.innerHTML = 'Stop playing';
+    isAutoPlaying = true;
+    intervalId = setInterval(() => {
+      playGame(playerMove);
+    }, 1000);
+  } else {
+    autoPlayElement.innerHTML = 'Auto Play';
+    isAutoPlaying = false;
+
+    clearInterval(intervalId)
+  }
+}
 
 document.querySelector('.reset-btn')
   .addEventListener('click', () => {
