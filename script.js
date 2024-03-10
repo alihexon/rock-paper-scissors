@@ -5,6 +5,21 @@ if (score) {
   scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
 }
 
+document.querySelector('.rock-btn')
+  .addEventListener('click', () => {
+    playGame('rock');
+  });
+
+document.querySelector('.paper-btn')
+  .addEventListener('click', () => {
+    playGame('paper');
+  });
+
+document.querySelector('.scissors-btn')
+  .addEventListener('click', () => {
+    playGame('scissors');
+  });
+
 function pickComputerMove() {
   const randomNumber = Math.random();
   let computerMove = '';
@@ -72,32 +87,34 @@ function playGame(playerMove) {
 isAutoPlaying = false;
 let intervalId;
 
-function autoPlay() {
-  const playerMove = pickComputerMove();
-  let autoPlayElement = document.querySelector('.autoplay-btn');
+document.querySelector('.autoplay-btn')
+  .addEventListener('click', () => {
+    const playerMove = pickComputerMove();
+    let autoPlayElement = document.querySelector('.autoplay-btn');
+  
+    if (!isAutoPlaying) {
+      autoPlayElement.innerHTML = 'Stop playing';
+      isAutoPlaying = true;
+      intervalId = setInterval(() => {
+        playGame(playerMove);
+      }, 1000);
+    } else {
+      autoPlayElement.innerHTML = 'Auto Play';
+      isAutoPlaying = false;
+  
+      clearInterval(intervalId)    
+    } 
+  })
 
-  if (!isAutoPlaying) {
-    autoPlayElement.innerHTML = 'Stop playing';
-    isAutoPlaying = true;
-    intervalId = setInterval(() => {
-      playGame(playerMove);
-    }, 1000);
-  } else {
-    autoPlayElement.innerHTML = 'Auto Play';
-    isAutoPlaying = false;
-
-    clearInterval(intervalId)    
-  } 
-}
-
-function resetScore() {
-  let scoreElement = document.querySelector('.score');
-  let errorElement = document.querySelector('.error');
-
-  if (scoreElement.innerHTML === '') {
-    errorElement.innerHTML = "There's no score to reset.";
-  } else {
-    score = { wins: 0, loses: 0, ties: 0, }
-    scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
-  }
-}
+document.querySelector('.reset-btn')
+  .addEventListener('click', () => {
+    let scoreElement = document.querySelector('.score');
+    let errorElement = document.querySelector('.error');
+  
+    if (scoreElement.innerHTML === '') {
+      errorElement.innerHTML = "There's no score to reset.";
+    } else {
+      score = { wins: 0, loses: 0, ties: 0, }
+      scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
+    }
+  });
