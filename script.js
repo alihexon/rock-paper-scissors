@@ -20,27 +20,33 @@ document.querySelector('.scissors-btn')
     playGame('scissors');
   });
 
-  document.body.addEventListener('keydown', (event) => {
-    if (event.key === 'r') {
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'r') {
       playGame('rock')
     }
   });
 
-  document.body.addEventListener('keydown', (event) => {
-    if (event.key === 'p') {
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'p') {
       playGame('paper')
     }
   });
 
-  document.body.addEventListener('keydown', (event) => {
-    if (event.key === 's') {
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 's') {
       playGame('scissors')
     }
   });
 
-  document.body.addEventListener('keydown', (event) => {
-    if (event.key === 'a') {
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'a') {
       autoPlay();
+    }
+  });
+
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'Backspace') {
+      resetScore();
     }
   });
 
@@ -136,13 +142,17 @@ function autoPlay() {
 
 document.querySelector('.reset-btn')
   .addEventListener('click', () => {
-    let scoreElement = document.querySelector('.score');
-    let errorElement = document.querySelector('.error');
-  
-    if (scoreElement.innerHTML === '') {
-      errorElement.innerHTML = "There's no score to reset.";
-    } else {
-      score = { wins: 0, loses: 0, ties: 0, }
-      scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
-    }
+    resetScore();
   });
+
+function resetScore() {
+  let scoreElement = document.querySelector('.score');
+  let errorElement = document.querySelector('.error');
+
+  if (scoreElement.innerHTML === '') {
+    errorElement.innerHTML = "There's no score to reset.";
+  } else {
+    score = { wins: 0, loses: 0, ties: 0, }
+    scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
+  }
+}
