@@ -130,6 +130,7 @@ function resetScore() {
     score = { wins: 0, loses: 0, ties: 0, }
     scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
   }
+  localStorage.setItem('score', JSON.stringify(score));
 }
 
 const modalElement = document.querySelector('.modal');
