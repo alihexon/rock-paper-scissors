@@ -5,50 +5,15 @@ if (score) {
   scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
 }
 
-document.querySelector('.rock-btn')
-  .addEventListener('click', () => {
-    playGame('rock');
-  });
+document.querySelector('.rock-btn').addEventListener('click', () => playGame('rock'));
+document.querySelector('.paper-btn').addEventListener('click', () => playGame('paper'));
+document.querySelector('.scissors-btn').addEventListener('click', () => playGame('scissors'));
 
-document.querySelector('.paper-btn')
-  .addEventListener('click', () => {
-    playGame('paper');
-  });
-
-document.querySelector('.scissors-btn')
-  .addEventListener('click', () => {
-    playGame('scissors');
-  });
-
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'r') {
-      playGame('rock')
-    }
-  });
-
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'p') {
-      playGame('paper')
-    }
-  });
-
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 's') {
-      playGame('scissors')
-    }
-  });
-
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'a') {
-      autoPlay();
-    }
-  });
-
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'Backspace') {
-      resetScore();
-    }
-  });
+document.body.addEventListener('keydown', (event) => {if (event.key === 'r') { playGame('rock') }});
+document.body.addEventListener('keydown', (event) => {if (event.key === 'p') { playGame('paper') }});
+document.body.addEventListener('keydown', (event) => {if (event.key === 's') { playGame('scissors') }});
+document.body.addEventListener('keydown', (event) => {if (event.key === 'a') { autoPlay() }});
+document.body.addEventListener('keydown', (event) => {if (event.key === 'Backspace') { resetScore() }});
 
 function pickComputerMove() {
   const randomNumber = Math.random();
