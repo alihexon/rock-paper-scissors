@@ -93,7 +93,7 @@ function playGame(playerMove) {
 
   localStorage.setItem('score', JSON.stringify(score));
 
-  movesElement.innerHTML = `You picked ${playerMove}, and computer picked ${computerMove}.`;
+  movesElement.innerHTML = `You <img src="assets/${playerMove}-emoji.png" class="move"> Computer <img src="assets/${computerMove}-emoji.png" class="move">`;
   scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
   errorElement.innerHTML = '';
 }

@@ -93,3 +93,7 @@ body {
 .confirmation-btn {
   flex: 1;
 }
+
+.move {
+  height: 50px;
+}
