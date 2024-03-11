@@ -10,10 +10,12 @@
 body {
   min-height: 100vh;
   background-color: rgb(27, 27, 27);
-  padding: 15px 25px;
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.container {
+  margin: 0 auto;
 }
 
 #move-selection {
