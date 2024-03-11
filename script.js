@@ -178,4 +178,15 @@ function closeModal(decision) {
 }
 
 document.querySelector('.js-yes').addEventListener('click', () => closeModal('yes'));
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'y') {
+      closeModal('yes');
+    }
+  });
+
 document.querySelector('.js-no').addEventListener('click', () => closeModal('no'));
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'n') {
+      closeModal('no');
+    }
+  });
