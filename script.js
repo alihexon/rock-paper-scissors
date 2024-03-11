@@ -142,7 +142,7 @@ function autoPlay() {
 
 document.querySelector('.reset-btn')
   .addEventListener('click', () => {
-    resetScore();
+    openModal();
   });
 
 function resetScore() {
@@ -156,3 +156,26 @@ function resetScore() {
     scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
   }
 }
+
+function openModal() {
+  const modalElement = document.querySelector('.modal');
+  
+  modalElement.classList.add('on')
+}
+
+document.querySelector('.reset-btn').addEventListener('click', () => openModal());
+
+function closeModal(decision) {
+  const modalElement = document.querySelector('.modal');
+  
+  if (decision === 'yes') {
+    resetScore();
+  } else if (decision === 'no') {
+    modalElement.classList.remove('on')
+    return
+  }
+  modalElement.classList.remove('on')
+}
+
+document.querySelector('.js-yes').addEventListener('click', () => closeModal('yes'));
+document.querySelector('.js-no').addEventListener('click', () => closeModal('no'));

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
 * {
   font-family: Poppins, sans-serif;
@@ -53,4 +53,43 @@ body {
   padding: 5px 10px;
   margin-top: 20px;
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.btn:hover {
+  background-color: rgb(31, 117, 31);
+}
+
+#reset-confirmation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  width: auto;
+  padding: 10px 15px;
+  visibility: hidden;
+  transition: transform 0.3s, top 0.3s;
+}
+
+.on {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.confirmation-btn {
+  flex: 1;
 }

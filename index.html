@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Rock Paper Scissors</title>
-</head>
-<body>
-  <main>
-    <section id="move-selection">
-      <button class="select-move-btn rock-btn">
-        <img src="assets/rock-emoji.png" alt="Rock">
-      </button>
-      <button class="select-move-btn paper-btn">
-        <img src="assets/paper-emoji.png" alt="Paper">
-      </button>
-      <button class="select-move-btn scissors-btn">
-        <img src="assets/scissors-emoji.png" alt="Scissors">
-      </button>
-    </section>
-    <section id="result-wrapper">
-      <p class="result"></p>
-      <p class="moves"></p>
-      <p class="score"></p>
-      <p class="error"></p>
-    </section>
-    <button class="reset-btn btn">Reset the score</button>
-    <button class="autoplay-btn btn">Auto Play</button>
-  </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <section id="move-selection">
+          <button class="select-move-btn rock-btn">
+            <img src="assets/rock-emoji.png" alt="Rock" />
+          </button>
+          <button class="select-move-btn paper-btn">
+            <img src="assets/paper-emoji.png" alt="Paper" />
+          </button>
+          <button class="select-move-btn scissors-btn">
+            <img src="assets/scissors-emoji.png" alt="Scissors" />
+          </button>
+        </section>
+        <section id="result-wrapper">
+          <p class="result"></p>
+          <p class="moves"></p>
+          <p class="score"></p>
+          <p class="error"></p>
+        </section>
+        <button class="reset-btn btn">Reset the score</button>
+        <button class="autoplay-btn btn">Auto Play</button>
+      </main>
+      <div id="reset-confirmation">
+        <div class="modal off">
+          <p>Are you sure you want to reset the score?</p>
+          <div class="btn-wrapper">
+            <button class="confirmation-btn btn js-yes">Yes</button>
+            <button class="confirmation-btn btn js-no">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
