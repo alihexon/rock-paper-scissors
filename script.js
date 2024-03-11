@@ -131,16 +131,19 @@ function resetScore() {
     scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
   }
 }
+
+const modalElement = document.querySelector('.modal');
+const modalOverlay = document.querySelector('.modal-overlay');
 // Function to open the modal for confirmation
 function openModal() {
-  const modalElement = document.querySelector('.modal');
+  
   
   modalElement.classList.add('on')
+  modalOverlay.classList.add('overlay-on')
 }
 
 document.querySelector('.reset-btn').addEventListener('click', () => openModal());
 
-const modalElement = document.querySelector('.modal');
 // Function to close the modal based on user decision
 function closeModal(decision) {
   
@@ -148,7 +151,9 @@ function closeModal(decision) {
     resetScore();
   } else if (decision === 'no') {
     modalElement.classList.remove('on')
+    modalOverlay.classList.remove('overlay-on')
     return
   }
   modalElement.classList.remove('on')
+  modalOverlay.classList.remove('overlay-on')
 }

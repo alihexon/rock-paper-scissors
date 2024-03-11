@@ -81,6 +81,17 @@ body {
   align-items: center;
 }
 
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  backdrop-filter: blur(5px);
+  transition: visibility 0.1s ease-in-out;
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -98,6 +109,10 @@ body {
   visibility: visible;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay-on {
+  visibility: visible;
 }
 
 .btn-wrapper {
