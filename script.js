@@ -1,20 +1,36 @@
+// Retrieves the score from localStorage and updates the display
 let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, loses: 0, ties: 0, };
 
 if (score) {
   let scoreElement = document.querySelector('.score');
   scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
 }
-
+// Event listeners for game play buttons
 document.querySelector('.rock-btn').addEventListener('click', () => playGame('rock'));
 document.querySelector('.paper-btn').addEventListener('click', () => playGame('paper'));
 document.querySelector('.scissors-btn').addEventListener('click', () => playGame('scissors'));
-
+document.querySelector('.reset-btn').addEventListener('click', () => openModal());
+document.querySelector('.autoplay-btn').addEventListener('click', () => autoPlay());
+// Event listener for keyboard shortcuts
 document.body.addEventListener('keydown', (event) => {if (event.key === 'r') { playGame('rock') }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 'p') { playGame('paper') }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 's') { playGame('scissors') }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 'a') { autoPlay() }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 'Backspace') { openModal() }});
+document.querySelector('.js-yes').addEventListener('click', () => closeModal('yes'));
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'y' && modalElement.classList.contains('on')) {
+      closeModal('yes');
+    }
+  });
 
+document.querySelector('.js-no').addEventListener('click', () => closeModal('no'));
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'n' && modalElement.classList.contains('on')) {
+      closeModal('no');
+    }
+  });
+// Function to pick a move for the computer randomly
 function pickComputerMove() {
   const randomNumber = Math.random();
   let computerMove = '';
@@ -28,7 +44,9 @@ function pickComputerMove() {
   }
   return computerMove;
 }
-
+// Function to play the game based on player's move
+// Compares player's move with computer's move and updates score
+// Displays the result and moves on the screen
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
   let resultElement = document.querySelector('.result');
@@ -78,15 +96,11 @@ function playGame(playerMove) {
   scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
   errorElement.innerHTML = '';
 }
-
+// Variable to track if auto play is active
 isAutoPlaying = false;
 let intervalId;
-
-document.querySelector('.autoplay-btn')
-  .addEventListener('click', () => {
-      autoPlay();
-  })
-
+// Function to handle auto play functionality
+// Automatically plays the game at intervals
 function autoPlay() {
   const playerMove = pickComputerMove();
   let autoPlayElement = document.querySelector('.autoplay-btn');
@@ -104,12 +118,7 @@ function autoPlay() {
     clearInterval(intervalId)
   }
 }
-
-document.querySelector('.reset-btn')
-  .addEventListener('click', () => {
-    openModal();
-  });
-
+// Function to reset the game score
 function resetScore() {
   let scoreElement = document.querySelector('.score');
   let errorElement = document.querySelector('.error');
@@ -121,7 +130,7 @@ function resetScore() {
     scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
   }
 }
-
+// Function to open the modal for confirmation
 function openModal() {
   const modalElement = document.querySelector('.modal');
   
@@ -131,7 +140,7 @@ function openModal() {
 document.querySelector('.reset-btn').addEventListener('click', () => openModal());
 
 const modalElement = document.querySelector('.modal');
-
+// Function to close the modal based on user decision
 function closeModal(decision) {
   
   if (decision === 'yes') {
@@ -142,17 +151,3 @@ function closeModal(decision) {
   }
   modalElement.classList.remove('on')
 }
-
-document.querySelector('.js-yes').addEventListener('click', () => closeModal('yes'));
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'y' && modalElement.classList.contains('on')) {
-      closeModal('yes');
-    }
-  });
-
-document.querySelector('.js-no').addEventListener('click', () => closeModal('no'));
-document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'n' && modalElement.classList.contains('on')) {
-      closeModal('no');
-    }
-  });
