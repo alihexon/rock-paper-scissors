@@ -13,7 +13,7 @@ document.body.addEventListener('keydown', (event) => {if (event.key === 'r') { p
 document.body.addEventListener('keydown', (event) => {if (event.key === 'p') { playGame('paper') }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 's') { playGame('scissors') }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 'a') { autoPlay() }});
-document.body.addEventListener('keydown', (event) => {if (event.key === 'Backspace') { resetScore() }});
+document.body.addEventListener('keydown', (event) => {if (event.key === 'Backspace') { openModal() }});
 
 function pickComputerMove() {
   const randomNumber = Math.random();
