@@ -165,8 +165,9 @@ function openModal() {
 
 document.querySelector('.reset-btn').addEventListener('click', () => openModal());
 
+const modalElement = document.querySelector('.modal');
+
 function closeModal(decision) {
-  const modalElement = document.querySelector('.modal');
   
   if (decision === 'yes') {
     resetScore();
@@ -179,14 +180,14 @@ function closeModal(decision) {
 
 document.querySelector('.js-yes').addEventListener('click', () => closeModal('yes'));
 document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'y') {
+  if (event.key === 'y' && modalElement.classList.contains('on')) {
       closeModal('yes');
     }
   });
 
 document.querySelector('.js-no').addEventListener('click', () => closeModal('no'));
 document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'n') {
+  if (event.key === 'n' && modalElement.classList.contains('on')) {
       closeModal('no');
     }
   });
