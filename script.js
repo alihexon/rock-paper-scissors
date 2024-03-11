@@ -17,6 +17,7 @@ document.body.addEventListener('keydown', (event) => {if (event.key === 'p') { p
 document.body.addEventListener('keydown', (event) => {if (event.key === 's') { playGame('scissors') }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 'a') { autoPlay() }});
 document.body.addEventListener('keydown', (event) => {if (event.key === 'Backspace') { openModal() }});
+// SECTION: Event listeners to run the code based on user decision + hotkeys
 document.querySelector('.js-yes').addEventListener('click', () => closeModal('yes'));
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'y' && modalElement.classList.contains('on')) {
