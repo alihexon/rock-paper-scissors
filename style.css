@@ -142,6 +142,15 @@ body {
     padding: 20px;
   }
 
+  .buttons-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 80%;
+  }
+
   .select-move-btn img {
     height: 50px;
   }
