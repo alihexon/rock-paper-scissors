@@ -23,7 +23,7 @@ document.body.addEventListener("keydown", (event) => {
     case "a":
       autoPlay();
       break;
-    case "backspace":
+    case "Backspace":
       openModal();
       break;
     case "y":
