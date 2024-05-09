@@ -9,22 +9,6 @@ if (score) {
   scoreElement.innerHTML = `Wins: ${score.wins} Loses: ${score.loses} Ties: ${score.ties}`;
 }
 
-document
-  .querySelector(".rock-btn")
-  .addEventListener("click", () => playGame("rock"));
-document
-  .querySelector(".paper-btn")
-  .addEventListener("click", () => playGame("paper"));
-document
-  .querySelector(".scissors-btn")
-  .addEventListener("click", () => playGame("scissors"));
-document
-  .querySelector(".reset-btn")
-  .addEventListener("click", () => openModal());
-document
-  .querySelector(".autoplay-btn")
-  .addEventListener("click", () => autoPlay());
-
 document.body.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "r":
