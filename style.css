@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
 * {
-  font-family: Poppins, sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -143,10 +143,21 @@ body {
   }
 
   .btn {
-    width: 80%;
+    width: 100%;
   }
 
   .select-move-btn img {
     height: 50px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .select-move-btn {
+    width: 90px;
+    height: 90px;
+    padding: 20px;
+  }
+  .select-move-btn img {
+    height: 45px;
   }
 }
