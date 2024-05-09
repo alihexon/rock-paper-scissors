@@ -26,46 +26,28 @@ document
   .addEventListener("click", () => autoPlay());
 
 document.body.addEventListener("keydown", (event) => {
-  if (event.key === "r") {
-    playGame("rock");
-  }
-});
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "p") {
-    playGame("paper");
-  }
-});
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "s") {
-    playGame("scissors");
-  }
-});
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "a") {
-    autoPlay();
-  }
-});
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "Backspace") {
-    openModal();
-  }
-});
-
-document
-  .querySelector(".js-yes")
-  .addEventListener("click", () => closeModal("yes"));
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "y" && modalElement.classList.contains("on")) {
-    closeModal("yes");
-  }
-});
-
-document
-  .querySelector(".js-no")
-  .addEventListener("click", () => closeModal("no"));
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "n" && modalElement.classList.contains("on")) {
-    closeModal("no");
+  switch (event.key) {
+    case "r":
+      playGame("rock");
+      break;
+    case "p":
+      playGame("paper");
+      break;
+    case "s":
+      playGame("scissors");
+      break;
+    case "a":
+      autoPlay();
+      break;
+    case "backspace":
+      openModal();
+      break;
+    case "y":
+      if (modalElement.classList.contains("on")) closeModal("yes");
+      break;
+    case "n":
+      if (modalElement.classList.contains("on")) closeModal("no");
+      break;
   }
 });
 
